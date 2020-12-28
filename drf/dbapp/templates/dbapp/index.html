@@ -1,0 +1,78 @@
+{% extends "dbapp/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col col-sm-3">
+        <a href="{% url 'problem1' %}" class="btn btn-danger btn-block p-3">Problem 1</a>
+    </div>
+    <div class="col col-sm-3">
+        <a href="{% url 'problem2' %}" class="btn btn-warning btn-block p-3 text-light">Problem 2</a>
+    </div>
+    <div class="col col-sm-3">
+        <a href="{% url 'problem3' %}" class="btn btn-success btn-block p-3">Problem 3</a>
+    </div>
+    <div class="col col-sm-3">
+        <a href="{% url 'problem4' %}" class="btn btn-dark btn-block p-3">Problem 4</a>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col col-sm-12 mt-3">
+            <div class="card">
+                <div class="card-header">
+                  <h3>Problem One</h3>
+                </div>
+                <div class="card-body text-danger">
+                  <blockquote class="card-blockquote">
+                    <p>You can Select the Country name from dropdown and start year from dropdown and you need to provide the range upto which you have to plot the graph. Default range is 10 and min range is 5 and max is 20.</p>
+                    <footer><b class="text-dark">Note:</b> We have Population data from year 1950 upto year 2015</footer>
+                  </blockquote>
+                </div>
+              </div>
+        </div>
+
+        <div class="col col-sm-12 mt-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Problem Two</h3>
+                </div>
+                <div class="card-body text-info">
+                  <blockquote class="card-blockquote">
+                    <p>You can select the Coountry groping from the dropdown and and the year for which you have to plot the graph.</p>
+                    <footer><b class="text-dark">Note:</b> We have Population data from year 1950 upto year 2015</footer>
+                  </blockquote>
+                </div>
+              </div>
+        </div>
+
+        <div class="col col-sm-12 mt-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Problem Three</h3>
+                </div>
+                <div class="card-body text-success">
+                  <blockquote class="card-blockquote">
+                    <p>You can Select the Country grouping from dropdown and start year from dropdown and you need to provide the range upto which you have to plot the graph. Default range is 10 and min range is 5 and max is 20.</p>
+                    <footer><b class="text-dark">Note:</b> We have Population data from year 1950 upto year 2015</footer>
+                  </blockquote>
+                </div>
+              </div>
+        </div>
+
+        <div class="col col-sm-12 mt-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Problem Four - Group Bar Chart</h3>
+                </div>
+                <div class="card-body text-primary">
+                  <blockquote class="card-blockquote">
+                    <p>You can Select the Country grouping from dropdown and start year from dropdown and you need to provide the range upto which you have to plot the graph. Default range is 10 and min range is 5 and max is 20.</p>
+                    <footer><b class="text-dark">Note:</b> We have Population data from year 1950 upto year 2015</footer>
+                  </blockquote>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

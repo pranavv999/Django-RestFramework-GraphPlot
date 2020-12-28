@@ -1,0 +1,132 @@
+{% extends "dbapp/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<form id="myform">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1" name="region">
+                    <option selected value="India">India</option>
+                    {% for country in country_names %}
+                    <option value="{{ country }}">{{ country }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1" name="start_year">
+                    <option selected value="2004">2004</option>
+                    {% for year in years %}
+                    <option value="{{ year }}">{{ year }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <input class="form-control" type="number" placeholder="Select Year Range min=5 & max=20"
+                id="example-number-input" max="20" min="5" name="year_range">
+        </div>
+
+        <div class="col-lg-3">
+            <button type="submit" class="btn btn-success">Plot Graph</button>
+        </div>
+    </div>
+</form>
+
+<div class="container mt-2">
+    <h2 class="text-center text-primary">Problem One</h2>
+</div>
+
+<div class="container mt-5">
+    <figure class="highcharts-figure">
+        <div id="container-1"></div>
+    </figure>
+</div>
+
+<script src="{% static 'dbapp/js/problem-one.js' %}"></script>
+
+<!-- <script>
+    document.getElementById('myform').addEventListener('submit', (event) => {
+
+        event.preventDefault();
+        const formData = new FormData(event.target);
+
+        var object = {};
+        formData.forEach(function (value, key) {
+            object[key] = value;
+        });
+        console.log(object);
+        let ApiUrl = `http://localhost:8000/api/problem_one/?region=${object['region']}&start_year=${object['start_year']}&year_range=${object['year_range']}`
+
+        console.log(ApiUrl)
+
+        fetch(ApiUrl).then(response => response.json()).then(json => plotGraph(json));
+    });
+
+    function plotGraph(json) {
+        var cName;
+        var data = [];
+        var years = [];
+        // json[0]['region']
+        for (object of json) {
+            cName = object['region'];
+            data.push(object['population']);
+            years.push(object['year']);
+
+        };
+
+        Highcharts.chart('container-1', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: `${cName} Population For Year ${years[0]} to ${years[data.length - 1]
+            }`
+            },
+            subtitle: {
+                text: 'Source: <a href="https://datahub.io/core/population-growth-estimates-and-projections/r/population-estimates.csv">Population Data</a>'
+            },
+            xAxis: {
+                categories: years,
+                title: {
+                    text: 'Years',
+                    style: {
+                        color: '#ff7d04',
+                        fontSize: '1.5em'
+                    }
+
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Population',
+                    style: {
+                        color: '#ff7d04',
+                        fontSize: '1.5em'
+                    }
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                valueSuffix: ' millions'
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name:"",
+                data: data}],
+        });
+
+        }
+</script> -->
+{% endblock content%}

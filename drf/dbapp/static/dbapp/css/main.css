@@ -1,0 +1,16 @@
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.highcharts-figure {
+    width: 100%;
+    min-width: 310px; 
+    max-width: 800px;
+    margin: 3em auto;
+  }
+  
+#container-1 {
+    height: 500px;
+}
